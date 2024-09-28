@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    kotlin("kapt")
+  //  id("com.google.devtools.ksp")
 }
 
 android {
@@ -120,4 +122,15 @@ dependencies {
             exclude(group = "androidx.ui", module = "ui-test-manifest")
         }
     }
+
+    // Room
+    implementation (libs.androidx.room.runtime)
+    kapt (libs.androidx.room.compiler)
+
+    // Kotlin Extensions and Coroutines support for Room
+    implementation (libs.androidx.room.ktx)
+    // Retrofit
+    implementation (libs.retrofit)
+ //   implementation (libs.converter.gson)
+    //implementation (libs.logging.interceptor)
 }
